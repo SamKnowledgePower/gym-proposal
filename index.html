@@ -12,9 +12,9 @@
 :root {
   --ink: #1a1a1a;
   --ink-soft: #666666;
-  --brand-red: #333333;
-  --brand-red-deep: #1a1a1a;
-  --brand-orange: #999999;
+  --brand-red: #7a1f2e;
+  --brand-red-deep: #7a1f2e;
+  --brand-orange: #7a1f2e;
   --bg-light: #f5f5f5;
   --bg-card: #ffffff;
   --bg-dark: #111111;
@@ -342,6 +342,109 @@ section {
   font-size: 14px;
   color: var(--text-secondary);
   line-height: 1.8;
+}
+
+/* ---- CURRENT AUDIT ---- */
+.audit-section { background: var(--bg-light); }
+.audit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.audit-card {
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid var(--border-subtle);
+  border-top: 3px solid var(--brand-red);
+  border-radius: 10px;
+  background: #fff;
+}
+.audit-number {
+  color: var(--brand-red);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.audit-observation,
+.audit-improvement {
+  font-size: 14px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.audit-observation { color: var(--text-secondary); margin-bottom: 14px; }
+.audit-improvement { color: var(--ink); }
+.audit-improvement span { color: var(--brand-red); font-weight: 700; }
+.audit-confirm {
+  margin-top: 20px;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+/* ---- LOCAL DISCOVERY ---- */
+.maps-highlight {
+  margin-top: 36px;
+  padding: 32px;
+  color: #fff;
+  background: var(--brand-red);
+  border-radius: 12px;
+}
+.maps-highlight h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.maps-highlight p { color: rgba(255,255,255,0.82); font-size: 14px; }
+.maps-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 28px;
+  margin-top: 22px;
+  list-style: none;
+}
+.maps-list li {
+  position: relative;
+  min-width: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+.maps-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: #fff; }
+.maps-benefit { margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.25); }
+
+/* ---- EXPECTED RESULTS ---- */
+.results-section { background: #fff; }
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+.result-card {
+  min-width: 0;
+  padding: 22px 16px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  background: var(--bg-light);
+}
+.result-value {
+  color: var(--brand-red);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.45;
+  margin-bottom: 8px;
+  overflow-wrap: anywhere;
+}
+.result-label { color: var(--text-secondary); font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
+.results-note {
+  margin-top: 24px;
+  padding: 16px 18px;
+  border-left: 3px solid var(--brand-red);
+  background: #faf7f8;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.75;
 }
 
 /* ---- PRICING ---- */
@@ -757,6 +860,8 @@ footer {
   .case-grid { grid-template-columns: 1fr; }
   .pricing-grid { grid-template-columns: 1fr; }
   .principles-grid { grid-template-columns: 1fr; }
+  .audit-grid, .maps-list { grid-template-columns: 1fr; }
+  .results-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .video-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
   .agg-bar { gap: 20px; padding: 20px 24px; }
   .method-flow { gap: 4px; }
@@ -781,6 +886,8 @@ footer {
 }
 @media (max-width: 480px) {
   .video-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .audit-card, .maps-highlight { padding: 22px 20px; }
+  .results-grid { grid-template-columns: 1fr; }
 }
 </style>
 <link rel="stylesheet" href="https://samknowledgepower.github.io/proposal-system/shared-portfolio.css?v=20260721-2">
@@ -793,9 +900,9 @@ footer {
     <div class="hero-eyebrow">GD健身房 · 一年期線上課程代操提案</div>
     <h1 class="hero-name">楊<span>引弘</span></h1>
     <p class="hero-desc">
-      從知識變現到品牌代操，我協助專業人士與機構把專業內容轉化為社群上的真實流量。
-      本提案為 GD健身房 量身規劃的一年期品牌代操與線上課程建置方案，涵蓋定位、行銷、網站、課程與金流五大環節。
-      所有成效數據皆可提供平台後台截圖佐證，配合查核。
+      讓南京復興至小巨蛋一帶，正在尋找免綁約、重視隱私與專業服務的上班族，
+      在地圖與社群先看見 GD健身房、理解精緻小班與私人空間的差異，再透過官方 LINE 完成預約。
+      本提案以穩定新會員來源、提升離峰時段利用率與強化會員留存為核心，所有成效皆以平台後台數據持續檢視。
     </p>
     <div class="hero-stats">
       <div>
@@ -833,7 +940,7 @@ footer {
           深耕創業與內容變現主題超過 20 年，3 年前起正式以顧問與代操身分協助客戶經營品牌社群。
           從線上課程規劃、社群內容代操到品牌重塑，輔導對象涵蓋餐飲、財務諮詢、烘焙教育、農業品牌等多元產業。
           具備中文、英文、西班牙文、義大利文溝通能力，同時具備短影音拍攝剪輯、銷售漏斗設計、金流串接等完整執行能力，
-          能將 GD健身房 的教練專業轉化為完整的品牌與線上課程事業。
+          能將 GD健身房 的教練專業轉化為清楚的在地品牌價值，建立可持續帶來預約與留存的經營系統。
         </p>
         <div style="margin-top:16px;">
           <p style="font-size:13px;color:#888888;margin-top:6px;">YouTube 頻道「引弘」 — 1.99 萬訂閱 / 72 部影片</p>
@@ -929,7 +1036,7 @@ footer {
   <div class="section-inner">
     <div class="section-eyebrow">Methodology</div>
     <h2 class="section-title">運作模式與內容產製流程</h2>
-    <p class="section-subtitle">每一個代操專案都依循以下流程推進，確保內容方向有據可循、成效可量化、路線可修正。</p>
+    <p class="section-subtitle">以門市經營目標反推內容，每一階段都能用數據檢視，讓曝光逐步轉為官方 LINE 詢問，並持續找出更能帶動招生與留客的內容方向。</p>
 
     <div class="method-flow">
       <div class="method-step">
@@ -981,8 +1088,40 @@ footer {
     <p class="method-desc">
       從前期訪談挖掘素材開始，建立帳號的人設定位與內容策略，再進入主題發想與拍攝執行。
       影片上線後透過數據觀察測試 IP 方向是否正確，持續修正路線直到找到最佳切入點，
-      最終達成變現、提升聲量或強化品牌形象的目標。這個循環會在整個合作期間持續運作。
+      最終讓潛在會員更快理解免綁約、重視隱私與精緻服務的差異，增加預約來源、填補離峰時段，並以持續溝通強化會員留存。這個循環會在整個合作期間持續運作。
     </p>
+  </div>
+</section>
+
+<!-- CURRENT AUDIT -->
+<section class="audit-section">
+  <div class="section-inner">
+    <div class="section-eyebrow">Current Audit</div>
+    <h2 class="section-title">現況健檢：把既有基礎升級為更完整的在地入口</h2>
+    <p class="section-subtitle">以下依目前公開頁面可觀察到的資訊整理，重點在補齊消費者從搜尋、查證到預約的路徑，讓每一個接觸點都更有利於招生與留客。</p>
+    <div class="audit-grid">
+      <article class="audit-card">
+        <div class="audit-number">01 · GOOGLE 商家名稱</div>
+        <p class="audit-observation">現況：Google 商家名稱串接較多關鍵字，與精緻私人工作室的品牌定位仍有整合空間，也需兼顧平台命名規範。</p>
+        <p class="audit-improvement"><span>改善方向：</span>名稱回歸品牌主體，關鍵字合規佈局於描述、服務項目與貼文，兼顧搜尋表現與品牌質感，提升在地搜尋後的預約意願。</p>
+      </article>
+      <article class="audit-card">
+        <div class="audit-number">02 · FACEBOOK 查證入口</div>
+        <p class="audit-observation">現況：Facebook 粉絲專頁互動量體與 Instagram 的經營活躍度有落差，三十五歲以上、消費力較高的客群在查證店家時可能缺少足夠資訊。</p>
+        <p class="audit-improvement"><span>改善方向：</span>粉專納入固定維護並與 Instagram 內容聯動，補齊查證入口，增加成熟客群對環境、課程與教練的信任，帶動詢問。</p>
+      </article>
+      <article class="audit-card">
+        <div class="audit-number">03 · 地圖內容活躍度</div>
+        <p class="audit-observation">現況：商家檔案的貼文更新頻率與照片汰換節奏仍有提升空間，活躍度會影響地圖搜尋表現與到店信任感。</p>
+        <p class="audit-improvement"><span>改善方向：</span>建立每週更新節奏，定期上架環境、課程與活動照片，讓附近上班族更快掌握服務特色與可預約時段。</p>
+      </article>
+      <article class="audit-card">
+        <div class="audit-number">04 · 評論經營</div>
+        <p class="audit-observation">現況：評論回覆尚未建立系統性機制，回覆速度與語氣若能一致，更有助於累積穩定的門面印象。</p>
+        <p class="audit-improvement"><span>改善方向：</span>代管評論回覆並建立會員留評引導，讓真實好評穩定累積，降低新客決策疑慮，也讓既有會員感受到持續重視。</p>
+      </article>
+    </div>
+    <p class="audit-confirm">本區依公開資訊整理，提案送出前由 Sam 最終確認。</p>
   </div>
 </section>
 
@@ -991,7 +1130,7 @@ footer {
   <div class="section-inner">
     <div class="section-eyebrow">Project Scope</div>
     <h2 class="section-title">GD健身房 品牌代操與線上課程 專案架構</h2>
-    <p class="section-subtitle">為期 12 個月的完整合作，涵蓋品牌定位、行銷、網站、課程與金流六大服務模塊，從啟動訪談到招生衝刺與成果結案，一次到位。</p>
+    <p class="section-subtitle">為期 12 個月的完整合作，從在地搜尋、社群查證、官方 LINE 預約到會員持續溝通，整合品牌定位、內容、網站、課程、金流與 Google 商家經營，讓新客來源與留存都有明確承接路徑。</p>
 
     <div class="timeline">
       <div class="timeline-block">
@@ -1002,7 +1141,7 @@ footer {
         <div class="timeline-desc">
           啟動為期六個月的觀察與訪談，同步展開形象網站與部落格建置。
           短影音與社群貼文（Facebook / Instagram / Threads）依排程正式發佈，
-          第一季拍攝主題與教練 IP 人設方向於此階段確認定案。
+          第一季拍攝主題與教練 IP 人設方向於此階段確認定案，讓附近上班族先認識教練與空間特色，建立第一批穩定詢問來源。
         </div>
       </div>
       <div class="timeline-block">
@@ -1014,7 +1153,7 @@ footer {
           短影音與社群貼文依全年配額持續產出，線上課程 10 至 15 支單元影片製作啟動，
           含 2 天現場拍攝與課程銷售頁建置。同步推進 YouTube 頻道 4 支影片與名單磁鐵設計、
           SEO 文章撰寫，並完成綠界金流串接與課程權限自動開通設定。
-          品牌定位報告書與 IP 規劃書於第六個月產出。
+          品牌定位報告書與 IP 規劃書於第六個月產出，並依受眾反應安排離峰時段與特色課程內容，增加可預約時段的使用率。
         </div>
       </div>
       <div class="timeline-block">
@@ -1024,10 +1163,42 @@ footer {
         <div class="timeline-date">第 9 — 12 個月 · 月費 NT$39,000</div>
         <div class="timeline-desc">
           依前八個月的內容數據修正路線，優化課程銷售頁與招生轉換動線，集中火力衝刺報名成效。
-          合作期滿前彙整全年成果報告，完成帳號與素材交接，所有製作成品與平台帳號完全歸屬 GD健身房。
+          合作期滿前彙整全年成果報告，完成帳號與素材交接，所有製作成品與平台帳號完全歸屬 GD健身房，留下可持續招生、再行銷與維繫會員的自有資產。
         </div>
       </div>
     </div>
+
+    <div class="maps-highlight">
+      <h3>Google 商家檔案在地曝光經營</h3>
+      <p>在地客人尋找健身房的第一個動作，幾乎都是打開地圖搜尋附近健身房，商家檔案就是門市在網路上的第一門面。本項服務已包含於方案內，不另列價格。</p>
+      <ul class="maps-list">
+        <li>商家名稱與檔案合規優化：名稱回歸品牌主體，關鍵字改佈局於商家描述、服務項目與定期貼文，兼顧搜尋表現、品牌質感與平台規範</li>
+        <li>每週商家貼文更新，與社群內容同步規劃</li>
+        <li>環境、課程、活動照片定期上架汰換</li>
+        <li>評論回覆代管，好評致謝、負評妥善回應，維護門面形象</li>
+        <li>營業資訊、服務項目與在地關鍵字優化</li>
+        <li>會員留評引導設計，協助累積真實好評</li>
+        <li>Facebook 粉絲專頁同步維護，與 Instagram 內容聯動，補齊三十五歲以上客群的查證入口</li>
+      </ul>
+      <p class="maps-benefit">讓小巨蛋商圈有明確需求的上班族更容易找到、信任並聯繫 GD健身房，同時以評論與持續更新支持新客招生及會員留存。</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPECTED RESULTS -->
+<section class="results-section">
+  <div class="section-inner">
+    <div class="section-eyebrow">Expected Results</div>
+    <h2 class="section-title">預期成效與每月檢視指標</h2>
+    <p class="section-subtitle">所有指標皆使用 Google、LINE 與社群平台後台可查數據，方便每月以截圖檢視從曝光、行動到詢問的變化。</p>
+    <div class="results-grid">
+      <article class="result-card"><div class="result-value">待補<br>待 Sam 提供</div><div class="result-label">Google 商家檔案搜尋曝光次數／月</div></article>
+      <article class="result-card"><div class="result-value">待補<br>待 Sam 提供</div><div class="result-label">路線規劃與來電點擊次數／月</div></article>
+      <article class="result-card"><div class="result-value">待補<br>待 Sam 提供</div><div class="result-label">官方 LINE 新增好友數／月</div></article>
+      <article class="result-card"><div class="result-value">待補<br>待 Sam 提供</div><div class="result-label">社群觸及與互動數／月</div></article>
+      <article class="result-card"><div class="result-value">待補<br>待 Sam 提供</div><div class="result-label">私訊與表單詢問數／月</div></article>
+    </div>
+    <p class="results-note">以上為依過往經驗之保守預估，非合約承諾數字，實際成效受市場與門市營運因素影響。</p>
   </div>
 </section>
 
@@ -1036,7 +1207,7 @@ footer {
   <div class="section-inner">
     <div class="section-eyebrow">Pricing</div>
     <h2 class="section-title">GD健身房 一年期服務方案</h2>
-    <p class="section-subtitle">單一方案涵蓋品牌、行銷、網站、課程與金流六大模塊，為期 12 個月，分兩階段計費。廣告投放預算與第三方軟體費用另計。</p>
+    <p class="section-subtitle">單一方案整合品牌、社群內容、Google 商家、網站、課程與金流，為期 12 個月，分兩階段計費；方案價格維持不變。廣告投放預算與第三方軟體費用另計。</p>
 
     <div class="pricing-grid pricing-grid-single">
       <div class="pricing-card featured">
@@ -1047,12 +1218,13 @@ footer {
           <div class="pricing-tier-note">第 9—12 個月調整為 <strong>NT$39,000 / 月</strong>（原價 NT$45,000／月，優惠價）</div>
         </div>
         <div class="pricing-body">
-          <div class="pricing-item">品牌定位與 IP 規劃：前六個月觀察與訪談，產出定位報告書與 IP 規劃書</div>
-          <div class="pricing-item">網路行銷與短影音：全年短影音 48 支、社群文章 48 篇，社群與搜尋廣告投放預算另議</div>
-          <div class="pricing-item">形象網站建置：個人網站與部落格，第一年規劃撰寫 6 篇 SEO 文章</div>
-          <div class="pricing-item">線上課程製作：10 至 15 支單元課程影片，含 2 天現場拍攝，並製作課程銷售頁</div>
-          <div class="pricing-item">YouTube 頻道發展：4 支影片，設計名單磁鐵吸引潛在客戶</div>
-          <div class="pricing-item">線上金流系統：串接綠界金流，實現自動開通課程權限功能</div>
+          <div class="pricing-item">品牌定位與 IP 規劃：前六個月觀察與訪談，產出定位報告書與 IP 規劃書，讓目標客群快速理解差異並提高預約意願</div>
+          <div class="pricing-item">網路行銷與短影音：全年短影音 48 支、社群文章 48 篇，讓教練專業持續觸及附近上班族，帶動新客詢問與會員回訪；社群與搜尋廣告投放預算另議</div>
+          <div class="pricing-item">Google 商家檔案在地曝光經營：每週更新、照片汰換、評論回覆、留評引導與在地關鍵字優化，方案內含、不另加價</div>
+          <div class="pricing-item">形象網站建置：個人網站與部落格，第一年規劃撰寫 6 篇 SEO 文章，承接搜尋流量並建立可信任的長期招生入口</div>
+          <div class="pricing-item">線上課程製作：10 至 15 支單元課程影片，含 2 天現場拍攝與課程銷售頁，延伸會員服務並增加持續互動與留存</div>
+          <div class="pricing-item">YouTube 頻道發展：4 支影片並設計名單磁鐵，累積可持續被搜尋的內容，為門市帶來新名單</div>
+          <div class="pricing-item">線上金流系統：串接綠界金流並自動開通課程權限，縮短購買流程並讓學員更順利留下</div>
         </div>
         <div class="pricing-note">
           費用結構分兩階段：第 1 至 8 個月優惠價 NT$29,000／月（原價 NT$45,000）；第 9 至 12 個月調整為 NT$39,000／月。
@@ -1071,6 +1243,10 @@ footer {
           <div class="deliverable-row">
             <span class="deliverable-label">社群貼文</span>
             <span class="deliverable-value">共 48 篇</span>
+          </div>
+          <div class="deliverable-row">
+            <span class="deliverable-label">Google 商家</span>
+            <span class="deliverable-value">在地曝光經營（方案內含）</span>
           </div>
           <div class="deliverable-row">
             <span class="deliverable-label">SEO 文章</span>
