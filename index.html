@@ -345,43 +345,6 @@ section {
 }
 
 
-.audit-section { background: var(--bg-light); }
-.audit-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-.audit-card {
-  min-width: 0;
-  padding: 28px;
-  border: 1px solid var(--border-subtle);
-  border-top: 3px solid var(--brand-red);
-  border-radius: 10px;
-  background: #fff;
-}
-.audit-number {
-  color: var(--brand-red);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin-bottom: 12px;
-}
-.audit-observation,
-.audit-improvement {
-  font-size: 14px;
-  line-height: 1.8;
-  overflow-wrap: anywhere;
-}
-.audit-observation { color: var(--text-secondary); margin-bottom: 14px; }
-.audit-improvement { color: var(--ink); }
-.audit-improvement span { color: var(--brand-red); font-weight: 700; }
-.audit-confirm {
-  margin-top: 20px;
-  color: var(--ink-soft);
-  font-size: 12px;
-}
-
-
 .maps-highlight {
   margin-top: 36px;
   padding: 32px;
@@ -932,7 +895,7 @@ footer {
   .case-grid { grid-template-columns: 1fr; }
   .pricing-grid { grid-template-columns: 1fr; }
   .principles-grid { grid-template-columns: 1fr; }
-  .audit-grid, .maps-list { grid-template-columns: 1fr; }
+  .maps-list { grid-template-columns: 1fr; }
   .commitment-grid, .stage-grid { grid-template-columns: 1fr; }
   .video-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
   .agg-bar { gap: 20px; padding: 20px 24px; }
@@ -958,7 +921,7 @@ footer {
 }
 @media (max-width: 480px) {
   .video-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .audit-card, .maps-highlight { padding: 22px 20px; }
+  .maps-highlight { padding: 22px 20px; }
   .commitment-panel, .stage-card, .tracking-panel { padding: 22px 20px; }
 }
 </style>
@@ -1162,29 +1125,6 @@ footer {
       影片上線後透過數據觀察測試 IP 方向是否正確，持續修正路線直到找到最佳切入點，
       最終讓潛在會員更快理解免綁約、重視隱私與精緻服務的差異，增加預約來源、填補離峰時段，並以持續溝通強化會員留存。這個循環會在整個合作期間持續運作。
     </p>
-  </div>
-</section>
-
-<!-- CURRENT AUDIT -->
-<section class="audit-section">
-  <div class="section-inner">
-    <div class="section-eyebrow">Optimization Focus</div>
-    <h2 class="section-title">接手後的三個優化重點</h2>
-    <p class="section-subtitle">延續既有經營基礎，補齊不同平台的日常維護，讓消費者從查找資訊到預約都有清楚、穩定的接觸點。</p>
-    <div class="audit-grid">
-      <article class="audit-card">
-        <div class="audit-number">01 · FACEBOOK 資訊維護</div>
-        <p class="audit-improvement">粉絲專頁納入固定維護並與 Instagram 內容聯動，讓不同年齡層的客群都能查到完整的環境、課程與教練資訊。</p>
-      </article>
-      <article class="audit-card">
-        <div class="audit-number">02 · 地圖內容更新</div>
-        <p class="audit-improvement">建立商家檔案每週更新節奏，定期上架環境與課程照片，維持地圖上的活躍度與新鮮感。</p>
-      </article>
-      <article class="audit-card">
-        <div class="audit-number">03 · 留言與評論維護</div>
-        <p class="audit-improvement">以固定節奏回覆留言與評論，並設計會員留評引導，讓真實好評自然累積。</p>
-      </article>
-    </div>
   </div>
 </section>
 
