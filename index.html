@@ -348,7 +348,7 @@ section {
 .audit-section { background: var(--bg-light); }
 .audit-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
 }
 .audit-card {
@@ -385,16 +385,17 @@ section {
 .maps-highlight {
   margin-top: 36px;
   padding: 32px;
-  color: #fff;
-  background: var(--brand-red);
-  border-radius: 12px;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
 }
 .maps-highlight h3 {
   font-family: 'Noto Serif TC', serif;
   font-size: 22px;
   margin-bottom: 10px;
 }
-.maps-highlight p { color: rgba(255,255,255,0.82); font-size: 14px; }
+.maps-highlight p { color: var(--text-secondary); font-size: 14px; }
 .maps-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -410,8 +411,7 @@ section {
   line-height: 1.75;
   overflow-wrap: anywhere;
 }
-.maps-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: #fff; }
-.maps-benefit { margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.25); }
+.maps-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--ink-soft); }
 
 
 .results-section { background: #fff; }
@@ -1168,32 +1168,23 @@ footer {
 <!-- CURRENT AUDIT -->
 <section class="audit-section">
   <div class="section-inner">
-    <div class="section-eyebrow">Current Audit</div>
-    <h2 class="section-title">現況健檢：把既有基礎升級為更完整的在地入口</h2>
-    <p class="section-subtitle">以下依目前公開頁面可觀察到的資訊整理，重點在補齊消費者從搜尋、查證到預約的路徑，讓每一個接觸點都更有利於招生與留客。</p>
+    <div class="section-eyebrow">Optimization Focus</div>
+    <h2 class="section-title">接手後的三個優化重點</h2>
+    <p class="section-subtitle">延續既有經營基礎，補齊不同平台的日常維護，讓消費者從查找資訊到預約都有清楚、穩定的接觸點。</p>
     <div class="audit-grid">
       <article class="audit-card">
-        <div class="audit-number">01 · GOOGLE 商家名稱</div>
-        <p class="audit-observation">現況：Google 商家名稱串接較多關鍵字，與精緻私人工作室的品牌定位仍有整合空間，也需兼顧平台命名規範。</p>
-        <p class="audit-improvement"><span>改善方向：</span>名稱回歸品牌主體，關鍵字合規佈局於描述、服務項目與貼文，兼顧搜尋表現與品牌質感，提升在地搜尋後的預約意願。</p>
+        <div class="audit-number">01 · FACEBOOK 資訊維護</div>
+        <p class="audit-improvement">粉絲專頁納入固定維護並與 Instagram 內容聯動，讓不同年齡層的客群都能查到完整的環境、課程與教練資訊。</p>
       </article>
       <article class="audit-card">
-        <div class="audit-number">02 · FACEBOOK 查證入口</div>
-        <p class="audit-observation">現況：Facebook 粉絲專頁互動量體與 Instagram 的經營活躍度有落差，三十五歲以上、消費力較高的客群在查證店家時可能缺少足夠資訊。</p>
-        <p class="audit-improvement"><span>改善方向：</span>粉專納入固定維護並與 Instagram 內容聯動，補齊查證入口，增加成熟客群對環境、課程與教練的信任，帶動詢問。</p>
+        <div class="audit-number">02 · 地圖內容更新</div>
+        <p class="audit-improvement">建立商家檔案每週更新節奏，定期上架環境與課程照片，維持地圖上的活躍度與新鮮感。</p>
       </article>
       <article class="audit-card">
-        <div class="audit-number">03 · 地圖內容活躍度</div>
-        <p class="audit-observation">現況：商家檔案的貼文更新頻率與照片汰換節奏仍有提升空間，活躍度會影響地圖搜尋表現與到店信任感。</p>
-        <p class="audit-improvement"><span>改善方向：</span>建立每週更新節奏，定期上架環境、課程與活動照片，讓附近上班族更快掌握服務特色與可預約時段。</p>
-      </article>
-      <article class="audit-card">
-        <div class="audit-number">04 · 評論經營</div>
-        <p class="audit-observation">現況：評論回覆尚未建立系統性機制，回覆速度與語氣若能一致，更有助於累積穩定的門面印象。</p>
-        <p class="audit-improvement"><span>改善方向：</span>代管評論回覆並建立會員留評引導，讓真實好評穩定累積，降低新客決策疑慮，也讓既有會員感受到持續重視。</p>
+        <div class="audit-number">03 · 留言與評論維護</div>
+        <p class="audit-improvement">以固定節奏回覆留言與評論，並設計會員留評引導，讓真實好評自然累積。</p>
       </article>
     </div>
-    <p class="audit-confirm">本區依公開資訊整理，提案送出前由 Sam 最終確認。</p>
   </div>
 </section>
 
@@ -1241,18 +1232,14 @@ footer {
     </div>
 
     <div class="maps-highlight">
-      <h3>Google 商家檔案在地曝光經營</h3>
-      <p>在地客人尋找健身房的第一個動作，幾乎都是打開地圖搜尋附近健身房，商家檔案就是門市在網路上的第一門面。本項服務已包含於方案內，不另列價格。</p>
+      <h3>Google 商家檔案日常維護</h3>
+      <p>在地客人常以地圖搜尋尋找健身房，商家檔案的日常維護已包含於方案內。</p>
       <ul class="maps-list">
-        <li>商家名稱與檔案合規優化：名稱回歸品牌主體，關鍵字改佈局於商家描述、服務項目與定期貼文，兼顧搜尋表現、品牌質感與平台規範</li>
         <li>每週商家貼文更新，與社群內容同步規劃</li>
         <li>環境、課程、活動照片定期上架汰換</li>
-        <li>評論回覆代管，好評致謝、負評妥善回應，維護門面形象</li>
-        <li>營業資訊、服務項目與在地關鍵字優化</li>
-        <li>會員留評引導設計，協助累積真實好評</li>
-        <li>Facebook 粉絲專頁同步維護，與 Instagram 內容聯動，補齊三十五歲以上客群的查證入口</li>
+        <li>評論的日常回覆與留評引導</li>
+        <li>營業資訊與服務項目維護</li>
       </ul>
-      <p class="maps-benefit">讓小巨蛋商圈有明確需求的上班族更容易找到、信任並聯繫 GD健身房，同時以評論與持續更新支持新客招生及會員留存。</p>
     </div>
   </div>
 </section>
@@ -1268,7 +1255,7 @@ footer {
       <h3 class="results-heading">我方保證的執行項目</h3>
       <div class="commitment-grid">
         <div class="commitment-item">全年短影音 48 支、社群貼文 48 篇如實交付</div>
-        <div class="commitment-item">Google 商家檔案每週更新與評論回覆代管</div>
+        <div class="commitment-item">Google 商家檔案每週更新與評論日常回覆</div>
         <div class="commitment-item">每月進度儀表板更新，產出數量隨時可查</div>
         <div class="commitment-item">每季一次數據校準會議，依後台實際數據共同檢視與調整策略</div>
       </div>
@@ -1322,7 +1309,7 @@ footer {
         <div class="pricing-body">
           <div class="pricing-item">品牌定位與 IP 規劃：前六個月觀察與訪談，產出定位報告書與 IP 規劃書，讓目標客群快速理解差異並提高預約意願</div>
           <div class="pricing-item">網路行銷與短影音：全年短影音 48 支、社群文章 48 篇，讓教練專業持續觸及附近上班族，帶動新客詢問與會員回訪；社群與搜尋廣告投放預算另議</div>
-          <div class="pricing-item">Google 商家檔案在地曝光經營：每週更新、照片汰換、評論回覆、留評引導與在地關鍵字優化，方案內含、不另加價</div>
+          <div class="pricing-item">Google 商家檔案日常維護：每週更新、照片汰換、評論日常回覆、留評引導與服務資訊維護，方案內含、不另加價</div>
           <div class="pricing-item">形象網站建置：個人網站與部落格，第一年規劃撰寫 6 篇 SEO 文章，承接搜尋流量並建立可信任的長期招生入口</div>
           <div class="pricing-item">線上課程製作：10 至 15 支單元課程影片，含 2 天現場拍攝與課程銷售頁，延伸會員服務並增加持續互動與留存</div>
           <div class="pricing-item">YouTube 頻道發展：4 支影片並設計名單磁鐵，累積可持續被搜尋的內容，為門市帶來新名單</div>
@@ -1348,7 +1335,7 @@ footer {
           </div>
           <div class="deliverable-row">
             <span class="deliverable-label">Google 商家</span>
-            <span class="deliverable-value">在地曝光經營（方案內含）</span>
+            <span class="deliverable-value">日常維護（方案內含）</span>
           </div>
           <div class="deliverable-row">
             <span class="deliverable-label">SEO 文章</span>
