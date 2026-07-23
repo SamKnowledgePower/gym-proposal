@@ -735,55 +735,87 @@ section {
 .method-section {
   background: #fff;
 }
-.method-flow {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  margin-bottom: 32px;
+.dual-track {
+  display: grid;
+  gap: 22px;
 }
-.method-step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 16px 12px;
-  min-width: 100px;
-  max-width: 120px;
+.track {
+  padding: 26px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  background: var(--bg-light);
 }
-.method-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--bg-dark);
-  color: #fff;
+.track-course { border-top: 4px solid var(--brand-red); }
+.track-local { border-top: 4px solid var(--ink); }
+.track-heading {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  margin-bottom: 10px;
-  font-weight: 700;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
 }
-.method-label {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-primary);
+.track-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 20px;
   line-height: 1.4;
 }
-.method-arrow {
-  font-size: 20px;
-  color: #cccccc;
-  margin: 0 2px;
-  flex-shrink: 0;
+.track-purpose {
+  color: var(--ink-soft);
+  font-size: 12px;
 }
-.method-desc {
-  font-size: 15px;
-  color: var(--text-secondary);
-  line-height: 1.8;
-  max-width: 720px;
-  margin: 0 auto;
+.track-steps {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 18px;
+}
+.track-step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 74px;
+  padding: 12px 10px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text-primary);
+  font-size: 12px;
+  line-height: 1.55;
   text-align: center;
+}
+.track-step:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -15px;
+  color: var(--ink-soft);
+  font-size: 16px;
+}
+.track-result {
+  margin-top: 18px;
+  padding: 13px 16px;
+  color: #fff;
+  background: var(--bg-dark);
+  border-radius: 7px;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 18px;
+  text-align: center;
+}
+.track-course .track-result { background: var(--brand-red); }
+.track-bridge {
+  padding: 20px 24px;
+  border: 1px solid rgba(122,31,46,0.3);
+  border-radius: 10px;
+  background: rgba(122,31,46,0.06);
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.8;
+  text-align: center;
+}
+.track-bridge span {
+  color: var(--brand-red-deep);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 
@@ -969,16 +1001,12 @@ footer {
   .case-grid { grid-template-columns: 1fr; }
   .pricing-grid { grid-template-columns: 1fr; }
   .principles-grid { grid-template-columns: 1fr; }
-  .maps-list { grid-template-columns: 1fr; }
   .resources-grid { grid-template-columns: 1fr; }
   .commitment-grid, .stage-grid { grid-template-columns: 1fr; }
   .video-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
   .agg-bar { gap: 20px; padding: 20px 24px; }
-  .method-flow { gap: 4px; }
-  .method-step { min-width: 80px; max-width: 100px; padding: 10px 6px; }
-  .method-icon { width: 40px; height: 40px; font-size: 15px; }
-  .method-label { font-size: 11px; }
-  .method-arrow { font-size: 16px; }
+  .track-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .track-step:nth-child(3)::after { display: none; }
   .overage-grid { grid-template-columns: 1fr; }
   .progress-mock-grid { grid-template-columns: repeat(2, 1fr); }
   .testimony-grid { grid-template-columns: 1fr; }
@@ -996,10 +1024,22 @@ footer {
 }
 @media (max-width: 480px) {
   .video-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .maps-highlight { padding: 22px 20px; }
   .resource-card { padding: 22px 20px; }
   .resource-preview-frame { height: 320px; }
-  .commitment-panel, .stage-card, .tracking-panel { padding: 22px 20px; }
+  .commitment-panel, .stage-card { padding: 22px 20px; }
+  .track { padding: 20px 16px; }
+  .track-heading { display: block; }
+  .track-purpose { margin-top: 5px; }
+  .track-steps { grid-template-columns: 1fr; gap: 22px; }
+  .track-step { min-height: 58px; }
+  .track-step:not(:last-child)::after {
+    content: '↓';
+    right: 50%;
+    bottom: -21px;
+    top: auto;
+    transform: translateX(50%);
+  }
+  .track-step:nth-child(3)::after { display: block; }
 }
 </style>
 <link rel="stylesheet" href="https://samknowledgepower.github.io/proposal-system/shared-portfolio.css?v=20260721-2">
@@ -1012,8 +1052,7 @@ footer {
     <div class="hero-eyebrow">引弘企業社商業提案</div>
     <h1 class="hero-name">GD健身房｜社群媒體與線上課程事業代操方案</h1>
     <p class="hero-desc">
-      從社群貼文與 Google 商家維護，到品牌定位、社群媒體內容與在地搜尋曝光，逐步建置形象網站、名單累積、YouTube、線上課程、銷售頁、金流與自動交付的完整事業代操方案。
-      目標是讓 GD健身房 同時擁有穩定的新會員接觸入口，以及可長期累積、持續銷售的線上課程資產；執行成效則以平台後台與進度表持續檢視。
+      十二個月,為 GD健身房 建立可持續銷售的線上課程事業,同時以在地內容曝光帶動現場預約與收入。從品牌定位、短影音產製、課程拍攝到銷售頁與金流上線,一次到位,每月皆有可檢視的進度與數據。
     </p>
     <div class="hero-stats">
       <div>
@@ -1103,42 +1142,12 @@ footer {
 
     <p class="section-subtitle">作品與流量由中央資料庫同步；數據最後更新：<span data-portfolio-updated>載入中</span></p>
     <div class="shared-portfolio-grid" data-shared-portfolio></div>
-  </div>
-</section>
-
-<!-- CASE STUDIES -->
-<section class="cases-section">
-  <div class="section-inner">
-    <div class="section-eyebrow">Case Studies</div>
-    <h2 class="section-title">知識變現輔導實績</h2>
-    <p class="section-subtitle">除了社群代操，我同時輔導專業人士將知識轉化為線上課程與顧問事業。以下為部分合作成果，模式與 GD健身房 欲建置的線上課程高度相似。</p>
-
-    <div class="case-grid">
-      <div class="case-card">
-        <div class="case-tag">餐飲轉型</div>
-        <div class="case-title">餐廳主廚轉型創業顧問</div>
-        <div class="case-desc">零經驗、零名單起步，透過定位策略與顧問式成交架構，從餐飲主廚成功轉型為創業顧問，打造可遠距工作的知識事業。</div>
-        <div class="case-result">2 週內引流 400 人，成交 60 萬</div>
-      </div>
-      <div class="case-card">
-        <div class="case-tag">財務諮詢</div>
-        <div class="case-title">個人財務顧問課程</div>
-        <div class="case-desc">透過市場訪談技巧與陪跑服務架構，協助財務諮詢師將服務產品化為線上課程，建立可規模化的知識事業模型。</div>
-        <div class="case-result">變現規模朝七位數邁進</div>
-      </div>
-      <div class="case-card">
-        <div class="case-tag">烘焙教育</div>
-        <div class="case-title">酸麵包偵探 品牌代操</div>
-        <div class="case-desc">為化工背景的酸麵包教育者進行全方位品牌代操：短影音、社群貼文、品牌重塑、銷售漏斗設計與金流串接，建立完整的線上課程銷售體系。</div>
-        <div class="case-result">行銷代操變現 80 餘萬</div>
-      </div>
-      <div class="case-card">
-        <div class="case-tag">農業紀實</div>
-        <div class="case-title">和豐西瓜 產地全紀錄系列</div>
-        <div class="case-desc">為農產品牌打造「DAY 1 到 DAY 100」的產地紀實系列短影音，從種植、田間管理到採收出貨全程跟拍，將農業專業轉化為觀眾追更的連載內容。</div>
-        <div class="case-result">系列累計觀看逾 100 萬，最高單支 57 萬，多支破萬</div>
-      </div>
-    </div>
+    <article class="case-card" style="margin-top:24px;">
+      <div class="case-tag">農業紀實代操案例</div>
+      <div class="case-title">和豐西瓜 產地全紀錄系列</div>
+      <div class="case-desc">打造「DAY 1 到 DAY 100」產地紀實短影音，從種植、田間管理到採收出貨全程跟拍，將農業專業轉化為觀眾持續追看的連載內容。</div>
+      <div class="case-result">系列累計觀看逾 100 萬，最高單支 57 萬，多支破萬</div>
+    </article>
   </div>
 </section>
 
@@ -1147,60 +1156,43 @@ footer {
   <div class="section-inner">
     <div class="section-eyebrow">Methodology</div>
     <h2 class="section-title">運作模式與內容產製流程</h2>
-    <p class="section-subtitle">以門市經營目標反推內容，每一階段都能用數據檢視，讓曝光逐步轉為官方 LINE 詢問，並持續找出更能帶動招生與留客的內容方向。</p>
+    <p class="section-subtitle">兩條路線同時推進:在地內容讓附近客群認識教練並走進門市,課程路線把教練的專業做成可持續銷售的線上課程。流量累積名單,名單支撐課程開賣,門市與課程兩邊的收入互相加成。</p>
 
-    <div class="method-flow">
-      <div class="method-step">
-        <div class="method-icon">1</div>
-        <div class="method-label">訪談產生素材</div>
-      </div>
-      <div class="method-arrow">&rarr;</div>
-      <div class="method-step">
-        <div class="method-icon">2</div>
-        <div class="method-label">帳號 IP 規劃</div>
-      </div>
-      <div class="method-arrow">&rarr;</div>
-      <div class="method-step">
-        <div class="method-icon">3</div>
-        <div class="method-label">內容行銷企劃</div>
-      </div>
-      <div class="method-arrow">&rarr;</div>
-      <div class="method-step">
-        <div class="method-icon">4</div>
-        <div class="method-label">主題發想</div>
-      </div>
-      <div class="method-arrow">&rarr;</div>
-      <div class="method-step">
-        <div class="method-icon">5</div>
-        <div class="method-label">現場拍攝</div>
-      </div>
-      <div class="method-arrow">&rarr;</div>
-      <div class="method-step">
-        <div class="method-icon">6</div>
-        <div class="method-label">測試 IP 方向</div>
-      </div>
-      <div class="method-arrow">&rarr;</div>
-      <div class="method-step">
-        <div class="method-icon">7</div>
-        <div class="method-label">產生流量</div>
-      </div>
-      <div class="method-arrow">&rarr;</div>
-      <div class="method-step">
-        <div class="method-icon">8</div>
-        <div class="method-label">修正路線</div>
-      </div>
-      <div class="method-arrow">&rarr;</div>
-      <div class="method-step" style="position:relative;">
-        <div class="method-icon" style="background:var(--brand-red);width:56px;height:56px;font-size:20px;box-shadow:0 4px 16px rgba(0,0,0,0.35);">9</div>
-        <div class="method-label" style="color:var(--brand-red-deep);font-weight:700;font-size:14px;">變現 / 聲量 / 品牌形象</div>
-      </div>
+    <div class="dual-track">
+      <article class="track track-local">
+        <div class="track-heading">
+          <h3 class="track-title">在地流量線</h3>
+          <div class="track-purpose">對應現場收入</div>
+        </div>
+        <div class="track-steps">
+          <div class="track-step">訪談產生素材</div>
+          <div class="track-step">教練 IP 與內容企劃</div>
+          <div class="track-step">短影音與社群發佈</div>
+          <div class="track-step">附近客群認識教練</div>
+          <div class="track-step">官方 LINE 預約</div>
+          <div class="track-step">現場收入</div>
+        </div>
+        <div class="track-result">現場收入增加</div>
+      </article>
+
+      <div class="track-bridge"><span>兩軌交會點:名單</span><br>在地流量持續累積名單,名單成為課程開賣的基礎。</div>
+
+      <article class="track track-course">
+        <div class="track-heading">
+          <h3 class="track-title">課程事業線</h3>
+          <div class="track-purpose">對應課程收入</div>
+        </div>
+        <div class="track-steps">
+          <div class="track-step">訪談與市場定位</div>
+          <div class="track-step">課程架構規劃</div>
+          <div class="track-step">課程拍攝製作</div>
+          <div class="track-step">銷售頁與金流上線</div>
+          <div class="track-step">名單經營與開賣</div>
+          <div class="track-step">課程收入</div>
+        </div>
+        <div class="track-result">線上課程事業</div>
+      </article>
     </div>
-
-    <p class="method-desc">
-      從前期訪談挖掘素材開始，建立帳號的人設定位與內容策略，再進入主題發想與拍攝執行。
-      影片上線後透過數據觀察測試 IP 方向是否正確，持續修正路線直到找到最佳切入點，
-      最終讓潛在會員更快理解免綁約、重視隱私與精緻服務的差異，增加預約來源、填補離峰時段，並以持續溝通強化會員留存。這個循環會在整個合作期間持續運作。
-    </p>
   </div>
 </section>
 
@@ -1209,7 +1201,7 @@ footer {
   <div class="section-inner">
     <div class="section-eyebrow">Project Scope</div>
     <h2 class="section-title">GD健身房 品牌代操與線上課程 專案架構</h2>
-    <p class="section-subtitle">為期 12 個月的完整合作，從在地搜尋、社群查證、官方 LINE 預約到會員持續溝通，整合品牌定位、內容、網站、課程、金流與 Google 商家經營，讓新客來源與留存都有明確承接路徑。</p>
+    <p class="section-subtitle">為期 12 個月的完整合作,以線上課程事業建置為主線,同步用在地內容增加現場預約。品牌定位、內容、網站、課程、銷售頁、金流與名單經營皆有明確推進節點。</p>
 
     <div class="timeline">
       <div class="timeline-block">
@@ -1221,6 +1213,7 @@ footer {
           啟動為期六個月的觀察與訪談，同步展開形象網站與部落格建置。
           短影音與社群貼文（Facebook / Instagram / Threads）依排程正式發佈，
           第一季拍攝主題與教練 IP 人設方向於此階段確認定案，讓附近上班族先認識教練與空間特色，建立第一批穩定詢問來源。
+          Google 商家與 Facebook 粉專日常維護（方案內含）。
         </div>
       </div>
       <div class="timeline-block">
@@ -1229,10 +1222,9 @@ footer {
         <div class="timeline-title">課程製作、YouTube 頻道與內容量產</div>
         <div class="timeline-date">第 3 — 8 個月</div>
         <div class="timeline-desc">
-          短影音與社群貼文依全年配額持續產出，線上課程 10 至 15 支單元影片製作啟動，
-          含 2 天現場拍攝與課程銷售頁建置。同步推進 YouTube 頻道 4 支影片與名單磁鐵設計、
-          SEO 文章撰寫，並完成綠界金流串接與課程權限自動開通設定。
-          品牌定位報告書與 IP 規劃書於第六個月產出，並依受眾反應安排離峰時段與特色課程內容，增加可預約時段的使用率。
+          線上課程 10 至 15 支單元影片進入完整製作，包含課程架構確認、2 天現場拍攝、後製與課程銷售頁建置。
+          同步完成綠界金流串接、課程權限自動開通、YouTube 頻道 4 支影片與名單磁鐵設計，讓課程具備可正式銷售與自動交付的條件。
+          短影音、社群貼文與 SEO 文章依全年配額持續產出，品牌定位報告書與 IP 規劃書於第六個月完成，持續為課程與門市累積受眾名單。
         </div>
       </div>
       <div class="timeline-block">
@@ -1241,22 +1233,13 @@ footer {
         <div class="timeline-title">銷售頁優化、招生衝刺與成果結案</div>
         <div class="timeline-date">第 9 — 12 個月</div>
         <div class="timeline-desc">
-          依前八個月的內容數據修正路線，優化課程銷售頁與招生轉換動線，集中火力衝刺報名成效。
-          合作期滿前彙整全年成果報告，完成帳號與素材交接，所有製作成品與平台帳號完全歸屬 GD健身房，留下可持續招生、再行銷與維繫會員的自有資產。
+          依前八個月的訪談、名單與內容數據優化課程定位、銷售頁與購買動線，推進名單培養、課程開賣與招生轉換。
+          社群內容同步支援課程宣傳及現場預約，讓兩條收入路線互相導流。合作期滿前彙整全年成果報告，完成帳號與素材交接，
+          所有製作成品與平台帳號完全歸屬 GD健身房，留下可持續銷售課程、再行銷與增加門市收入的自有資產。
         </div>
       </div>
     </div>
 
-    <div class="maps-highlight">
-      <h3>Google 商家檔案日常維護</h3>
-      <p>在地客人常以地圖搜尋尋找健身房，商家檔案的日常維護已包含於方案內。</p>
-      <ul class="maps-list">
-        <li>每週商家貼文更新，與社群內容同步規劃</li>
-        <li>環境、課程、活動照片定期上架汰換</li>
-        <li>評論的日常回覆與留評引導</li>
-        <li>營業資訊與服務項目維護</li>
-      </ul>
-    </div>
   </div>
 </section>
 
@@ -1321,15 +1304,25 @@ footer {
   <div class="section-inner">
     <div class="section-eyebrow">Expected Results</div>
     <h2 class="section-title">預期成效與透明交付</h2>
-    <p class="section-subtitle">先確認可直接驗收的執行承諾，再以平台後台數據分階段校準目標，讓雙方清楚掌握進度與策略調整依據。</p>
+    <p class="section-subtitle">先確認可直接驗收的交付內容，再以平台後台數據分階段校準目標，讓雙方清楚掌握進度與策略調整依據。</p>
 
     <div class="commitment-panel">
-      <h3 class="results-heading">我方保證的執行項目</h3>
+      <h3 class="results-heading">交付內容</h3>
       <div class="commitment-grid">
-        <div class="commitment-item">全年短影音 48 支、社群貼文 48 篇如實交付</div>
-        <div class="commitment-item">Google 商家檔案每週更新與評論日常回覆</div>
-        <div class="commitment-item">每月進度儀表板更新，產出數量隨時可查</div>
-        <div class="commitment-item">每季一次數據校準會議，依後台實際數據共同檢視與調整策略</div>
+        <div class="commitment-item">品牌定位報告書</div>
+        <div class="commitment-item">IP 規劃書</div>
+        <div class="commitment-item">短影音 48 支（全年）</div>
+        <div class="commitment-item">社群貼文 48 篇（全年）</div>
+        <div class="commitment-item">形象網站與部落格建置</div>
+        <div class="commitment-item">SEO 文章 6 篇</div>
+        <div class="commitment-item">線上課程影片 10 至 15 支（含 2 天現場拍攝）</div>
+        <div class="commitment-item">課程銷售頁建置</div>
+        <div class="commitment-item">綠界金流串接與課程權限自動開通</div>
+        <div class="commitment-item">YouTube 影片 4 支與名單磁鐵設計</div>
+        <div class="commitment-item">Google 商家與 Facebook 粉專日常維護</div>
+        <div class="commitment-item">每月進度儀表板</div>
+        <div class="commitment-item">每季數據校準會議</div>
+        <div class="commitment-item">結案成果報告與帳號、素材完整交接</div>
       </div>
     </div>
 
@@ -1345,21 +1338,11 @@ footer {
         <div class="stage-period">收成期｜第 7 至 12 個月</div>
         <div class="stage-value">累計 30 至 50 位</div>
         <p class="stage-label">完成受眾訪談與名單建立</p>
-        <p class="stage-note">名單為線上課程開賣之前置資產</p>
+        <p class="stage-note">名單為線上課程開賣的直接基礎</p>
       </article>
     </div>
 
-    <div class="tracking-panel">
-      <h3 class="tracking-title">每月儀表板持續追蹤</h3>
-      <p class="tracking-intro">以下為觀察指標，不設目標值。</p>
-      <ul class="tracking-list">
-        <li>路線規劃與來電點擊</li>
-        <li>官方 LINE 新增好友</li>
-        <li>私訊與表單詢問</li>
-        <li>商家檔案搜尋曝光</li>
-      </ul>
-    </div>
-    <p class="results-note">以上目標依商圈條件與過往操作經驗保守設定,每季依後台實際數據共同檢視與校準。行銷可控制的是觸及與名單的累積,最終成交仍繫於課程定價、市場時機等多重因素。因此我方承諾:全部執行項目如實交付、全程數據透明,並在每次校準會議中主動提出修正方案。</p>
+    <p class="results-note">以上目標依商圈條件與過往操作經驗保守設定,每季依後台實際數據共同檢視與校準。行銷可控制的是觸及與名單的累積,最終成交仍繫於課程定價、市場時機等多重因素。因此引弘企業社承諾:全部交付項目如實完成、全程數據透明,並在每次校準會議中主動提出修正方案。</p>
   </div>
 </section>
 
