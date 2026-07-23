@@ -377,6 +377,76 @@ section {
 .maps-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--ink-soft); }
 
 
+.resources-section { background: #eeeeee; }
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.resource-card {
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  background: var(--bg-card);
+}
+.resource-step {
+  color: var(--brand-red);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.resource-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 20px;
+  line-height: 1.45;
+  margin-bottom: 10px;
+}
+.resource-desc {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+.resource-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.resource-link,
+.resource-preview summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 8px 14px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.resource-link { color: #fff; background: var(--brand-red); }
+.resource-preview summary {
+  color: var(--ink);
+  border: 1px solid var(--border-subtle);
+  background: #fff;
+  list-style: none;
+}
+.resource-preview summary::-webkit-details-marker { display: none; }
+.resource-preview[open] { width: 100%; margin-top: 12px; }
+.resource-preview-frame {
+  width: 100%;
+  height: 420px;
+  margin-top: 12px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  background: var(--bg-light);
+}
+.resource-note {
+  margin-top: 18px;
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+
 .results-section { background: #fff; }
 .commitment-panel {
   padding: 34px;
@@ -896,6 +966,7 @@ footer {
   .pricing-grid { grid-template-columns: 1fr; }
   .principles-grid { grid-template-columns: 1fr; }
   .maps-list { grid-template-columns: 1fr; }
+  .resources-grid { grid-template-columns: 1fr; }
   .commitment-grid, .stage-grid { grid-template-columns: 1fr; }
   .video-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
   .agg-bar { gap: 20px; padding: 20px 24px; }
@@ -922,6 +993,8 @@ footer {
 @media (max-width: 480px) {
   .video-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .maps-highlight { padding: 22px 20px; }
+  .resource-card { padding: 22px 20px; }
+  .resource-preview-frame { height: 320px; }
   .commitment-panel, .stage-card, .tracking-panel { padding: 22px 20px; }
 }
 </style>
@@ -1181,6 +1254,62 @@ footer {
         <li>營業資訊與服務項目維護</li>
       </ul>
     </div>
+  </div>
+</section>
+
+<!-- COLLABORATION RESOURCES -->
+<section class="resources-section">
+  <div class="section-inner">
+    <div class="section-eyebrow">Collaboration Resources</div>
+    <h2 class="section-title">合作依據與執行工具</h2>
+    <p class="section-subtitle">提案確認方向後，實際合作會以以下四項文件與工具銜接。從完整交付內容、雙方權利邊界，到策略施工位置與每週執行紀錄，都有一致的查閱依據。</p>
+
+    <div class="resources-grid">
+      <article class="resource-card">
+        <div class="resource-step">01 · 完整交付內容</div>
+        <h3 class="resource-title">服務說明書</h3>
+        <p class="resource-desc">完整列出實際服務內容與交付方式，讓合作範圍、執行項目與預期產出有清楚依據。</p>
+        <div class="resource-actions">
+          <a class="resource-link" href="https://docs.google.com/document/d/1r_qnLdfXicIDry6fpLUc_cRiXSSDNmlT95qLgV1_njI/edit?usp=sharing" target="_blank" rel="noopener noreferrer">開啟服務說明書</a>
+          <details class="resource-preview">
+            <summary>頁內預覽</summary>
+            <iframe class="resource-preview-frame" src="https://docs.google.com/document/d/1r_qnLdfXicIDry6fpLUc_cRiXSSDNmlT95qLgV1_njI/preview" title="服務說明書預覽" loading="lazy"></iframe>
+          </details>
+        </div>
+      </article>
+
+      <article class="resource-card">
+        <div class="resource-step">02 · 合作邊界與權利</div>
+        <h3 class="resource-title">GD 健身房線上課程代操服務契約</h3>
+        <p class="resource-desc">由律師協助制定合作邊界與範圍，清楚約定雙方權利、責任與合作方式，讓後續執行有所依據。</p>
+        <div class="resource-actions">
+          <a class="resource-link" href="https://docs.google.com/document/d/12bx5JWP5F6RSdleD4cZ8VD8UUHaHti5fs7NAqpJXD8o/edit?usp=sharing" target="_blank" rel="noopener noreferrer">開啟服務契約</a>
+          <details class="resource-preview">
+            <summary>頁內預覽</summary>
+            <iframe class="resource-preview-frame" src="https://docs.google.com/document/d/12bx5JWP5F6RSdleD4cZ8VD8UUHaHti5fs7NAqpJXD8o/preview" title="服務契約預覽" loading="lazy"></iframe>
+          </details>
+        </div>
+      </article>
+
+      <article class="resource-card">
+        <div class="resource-step">03 · 策略施工位置</div>
+        <h3 class="resource-title">網路行銷地圖</h3>
+        <p class="resource-desc">以視覺化方式呈現整體內容與初步規劃；合作執行期間，也用來判斷目前進度位於哪一個施工階段。</p>
+        <div class="resource-actions">
+          <a class="resource-link" href="https://canva.link/8gml6ytpoz8nzuy" target="_blank" rel="noopener noreferrer">開啟網路行銷地圖</a>
+        </div>
+      </article>
+
+      <article class="resource-card">
+        <div class="resource-step">04 · 每週事後檢核</div>
+        <h3 class="resource-title">專案進度表</h3>
+        <p class="resource-desc">每週依實際執行內容更新，作為完成項目、當前進度與後續安排的事後檢核依據。</p>
+        <div class="resource-actions">
+          <a class="resource-link" href="https://claude.ai/public/artifacts/ceab2056-0cdc-40e1-aec3-79e9dd699102" target="_blank" rel="noopener noreferrer">開啟專案進度表</a>
+        </div>
+      </article>
+    </div>
+    <p class="resource-note">Google 文件可直接於頁內預覽；網路行銷地圖與專案進度表將於新分頁開啟，以保留原平台的完整操作與閱讀體驗。</p>
   </div>
 </section>
 
